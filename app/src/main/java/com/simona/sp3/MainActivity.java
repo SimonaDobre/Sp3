@@ -58,12 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void preiaCuvantDinInputGenereazaSpatiiGoale() {
         wordToBeGuessed = wordED.getText().toString().trim();
-        if (wordToBeGuessed.contains(" ")) {
-            Toast.makeText(MainActivity.this, "doar cuvinte fara spatii !", Toast.LENGTH_SHORT).show();
-            wordED.requestFocus();
-            return;
-        }
-        // alte restrictii ? sa nu contina cifre
         game = new GuessLettersAndGameManagement(wordToBeGuessed.length());
         rv.setLayoutManager(new GridLayoutManager(this, wordToBeGuessed.length()));
         myAdapter = new Adapter(game.getGenerateWordWithLettersAndSpaces().getSirCuvantCuSpatii());
